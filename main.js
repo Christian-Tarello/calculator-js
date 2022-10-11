@@ -69,6 +69,16 @@ function chooseOperator(e) {
     }
 }
 
+function evaluateOperation() {
+    if (!operator || !answer) return;
+    displayNumber = operate(operator, +answer, +displayNumber);
+    answer = displayNumber;
+    display.textContent = `${displayNumber}`
+    operator = null;
+    freshOperator = false;
+}
+
+
 let displayNumber = ""; //string
 let operator; //string
 let freshOperator; //boolean
@@ -82,3 +92,5 @@ numbers.forEach((number)=>{number.addEventListener("click",typeNumber)});
 const operators = document.querySelectorAll(".operator");
 operators.forEach((operator)=>{operator.addEventListener("click",chooseOperator)});
 
+const equalSign = document.querySelector('.equal');
+equalSign.addEventListener("click", evaluateOperation)
