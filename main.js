@@ -83,6 +83,14 @@ function backspaceDisplay() {
     display.textContent = `${displayNumber}`
 }
 
+function clearDisplay() {
+    displayNumber = "";
+    operator = "";
+    freshOperator = false;
+    answer = ""
+    display.textContent = `${displayNumber}`
+}
+
 
 let displayNumber = ""; //string
 let operator; //string
@@ -102,3 +110,6 @@ equalSign.addEventListener("click", evaluateOperation)
 
 const backspace = document.querySelector('.backspace');
 backspace.addEventListener("click", backspaceDisplay);
+
+const clear = document.querySelector(".clear");
+clear.addEventListener("click", clearDisplay);
