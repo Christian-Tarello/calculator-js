@@ -31,17 +31,17 @@ function operate(operator, a, b) {
 function typeNumber(e) {
     const typedNumber = e.target.value;
 
-    if (operator) {
-        if (freshOperator){
-            answer = display.textContent;
+    if (currentOperator) {
+        if (isOperatorRecent){
+            lastOperand = display.textContent;
             display.textContent = typedNumber;
-            freshOperator = false;
+            isOperatorRecent = false;
         } else {
             display.textContent += typedNumber;
         }
     } else {
-        if (answer) {
-            answer = 0;
+        if (lastOperand) {
+            lastOperand = 0;
             display.textContent = typedNumber;
         }
         else {
@@ -52,24 +52,24 @@ function typeNumber(e) {
 
 function chooseOperator(e) {
     const eventOperator = e.target.value;
-    if (operator) {
-        display.textContent = operate(operator, +answer, +display.textContent);
-        answer = display.textContent;
-        operator = eventOperator;
-        freshOperator = true;
+    if (currentOperator) {
+        display.textContent = operate(currentOperator, +lastOperand, +display.textContent);
+        lastOperand = display.textContent;
+        currentOperator = eventOperator;
+        isOperatorRecent = true;
     } else{
-        answer = display.textContent;
-        operator = eventOperator;
-        freshOperator = true;
+        lastOperand = display.textContent;
+        currentOperator = eventOperator;
+        isOperatorRecent = true;
     }
 }
 
 function evaluateOperation() {
-    if (!operator || !answer) return;
-    display.textContent = operate(operator, +answer, +display.textContent);
-    answer = display.textContent;
-    operator = null;
-    freshOperator = false;
+    if (!currentOperator || !lastOperand) return;
+    display.textContent = operate(currentOperator, +lastOperand, +display.textContent);
+    lastOperand = display.textContent;
+    currentOperator = null;
+    isOperatorRecent = false;
 }
 
 function backspaceDisplay() {
@@ -78,15 +78,15 @@ function backspaceDisplay() {
 
 function clearDisplay() {
     display.textContent = "";
-    operator = "";
-    freshOperator = false;
-    answer = ""
+    currentOperator = "";
+    isOperatorRecent = false;
+    lastOperand = ""
 }
 
 
-let operator; //string
-let freshOperator; //boolean
-let answer;
+let currentOperator; //string
+let isOperatorRecent; //boolean
+let lastOperand;
 
 const display = document.querySelector(".calculator-display")
 
