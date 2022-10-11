@@ -78,6 +78,11 @@ function evaluateOperation() {
     freshOperator = false;
 }
 
+function backspaceDisplay() {
+    displayNumber = displayNumber.substring(0, displayNumber.length-1)
+    display.textContent = `${displayNumber}`
+}
+
 
 let displayNumber = ""; //string
 let operator; //string
@@ -94,3 +99,6 @@ operators.forEach((operator)=>{operator.addEventListener("click",chooseOperator)
 
 const equalSign = document.querySelector('.equal');
 equalSign.addEventListener("click", evaluateOperation)
+
+const backspace = document.querySelector('.backspace');
+backspace.addEventListener("click", backspaceDisplay);
