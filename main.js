@@ -83,6 +83,13 @@ function clearDisplay() {
     lastOperand = ""
 }
 
+function toggleSign() {
+    if (display.textContent.startsWith("-")){
+        display.textContent = display.textContent.substring(1);
+    } else {
+        display.textContent = "-"+display.textContent;
+    }
+}
 
 let currentOperator; //string
 let isOperatorRecent; //boolean
@@ -104,3 +111,6 @@ backspace.addEventListener("click", backspaceDisplay);
 
 const clear = document.querySelector(".clear");
 clear.addEventListener("click", clearDisplay);
+
+const sign = document.querySelector(".sign");
+sign.addEventListener("click", toggleSign);
