@@ -33,23 +33,19 @@ function typeNumber(e) {
 
     if (operator) {
         if (freshOperator){
-            answer = displayNumber;
-            displayNumber = typedNumber;
-            display.textContent = `${displayNumber}`;
+            answer = display.textContent;
+            display.textContent = typedNumber;
             freshOperator = false;
         } else {
-            displayNumber += typedNumber;
-            display.textContent = `${displayNumber}`;
+            display.textContent += typedNumber;
         }
     } else {
         if (answer) {
             answer = 0;
-            displayNumber = typedNumber;
-            display.textContent = `${displayNumber}`;
+            display.textContent = typedNumber;
         }
         else {
-            displayNumber += typedNumber;
-            display.textContent = `${displayNumber}`;
+            display.textContent += typedNumber;
         }
     }
 }
@@ -57,13 +53,12 @@ function typeNumber(e) {
 function chooseOperator(e) {
     const eventOperator = e.target.value;
     if (operator) {
-        displayNumber = operate(operator, +answer, +displayNumber);
-        answer = displayNumber;
+        display.textContent = operate(operator, +answer, +display.textContent);
+        answer = display.textContent;
         operator = eventOperator;
         freshOperator = true;
-        display.textContent = `${displayNumber}`
     } else{
-        answer = displayNumber;
+        answer = display.textContent;
         operator = eventOperator;
         freshOperator = true;
     }
@@ -71,28 +66,24 @@ function chooseOperator(e) {
 
 function evaluateOperation() {
     if (!operator || !answer) return;
-    displayNumber = operate(operator, +answer, +displayNumber);
-    answer = displayNumber;
-    display.textContent = `${displayNumber}`
+    display.textContent = operate(operator, +answer, +display.textContent);
+    answer = display.textContent;
     operator = null;
     freshOperator = false;
 }
 
 function backspaceDisplay() {
-    displayNumber = displayNumber.substring(0, displayNumber.length-1)
-    display.textContent = `${displayNumber}`
+    display.textContent = display.textContent.substring(0, display.textContent.length-1);
 }
 
 function clearDisplay() {
-    displayNumber = "";
+    display.textContent = "";
     operator = "";
     freshOperator = false;
     answer = ""
-    display.textContent = `${displayNumber}`
 }
 
 
-let displayNumber = ""; //string
 let operator; //string
 let freshOperator; //boolean
 let answer;
