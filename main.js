@@ -28,12 +28,6 @@ function operate(operator, a, b) {
 }
 
 
-let displayNumber = ""; //string
-let operator; //string
-let freshOperator; //boolean
-let answer ="a";
-
-
 function typeNumber(e) {
     const typedNumber = e.target.value;
 
@@ -74,6 +68,11 @@ function chooseOperator(e) {
         freshOperator = true;
     }
 }
+
+let displayNumber = ""; //string
+let operator; //string
+let freshOperator; //boolean
+let answer;
 
 const display = document.querySelector(".calculator-display")
 
