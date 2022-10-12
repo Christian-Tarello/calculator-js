@@ -93,6 +93,11 @@ function toggleSign() {
     }
 }
 
+function typeDecimal() {
+    if (display.textContent.includes(".")) return;
+    display.textContent+=".";
+}
+
 let currentOperator; //string
 let isOperatorRecent; //boolean
 let lastOperand;
@@ -116,3 +121,6 @@ clear.addEventListener("click", clearDisplay);
 
 const sign = document.querySelector(".sign");
 sign.addEventListener("click", toggleSign);
+
+const decimal = document.querySelector(".decimal");
+decimal.addEventListener("click", typeDecimal)
