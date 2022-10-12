@@ -108,6 +108,17 @@ function calculatePercentage() {
     display.textContent = (+display.textContent / 100);
 }
 
+// Helper Function
+function calculateAnswer(operator, firstOperand, secondOperand) {
+    if (operator === "/" && secondOperand === 0) return "Error/0";
+    let answer = operate(operator, firstOperand, secondOperand);
+    if (!Number.isInteger(answer) && answer.toString().length > 8){
+        return Math.round(answer * 10000) / 10000;
+    }
+    
+    return answer;
+}
+
 let currentOperator; //string
 let isOperatorRecent; //boolean
 let lastOperand;
