@@ -98,6 +98,10 @@ function typeDecimal() {
     display.textContent+=".";
 }
 
+function calculatePercentage() {
+    display.textContent = (+display.textContent / 100);
+}
+
 let currentOperator; //string
 let isOperatorRecent; //boolean
 let lastOperand;
@@ -124,3 +128,6 @@ sign.addEventListener("click", toggleSign);
 
 const decimal = document.querySelector(".decimal");
 decimal.addEventListener("click", typeDecimal)
+
+const percent = document.querySelector(".percent");
+percent.addEventListener("click", calculatePercentage);
