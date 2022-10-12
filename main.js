@@ -84,6 +84,8 @@ function clearDisplay() {
 }
 
 function toggleSign() {
+    if (display.textContent.length === 0) return;
+
     if (display.textContent.startsWith("-")){
         display.textContent = display.textContent.substring(1);
     } else {
