@@ -79,7 +79,7 @@ function evaluateOperation() {
 function backspaceDisplay() {
     if (display.textContent === lastOperand && !currentOperator) return;
     display.textContent = display.textContent.substring(0, display.textContent.length-1);
-    if (display.textContent.length === 1 && display.textContent === "-") toggleSign();
+    if (display.textContent === "-") display.textContent = "";
 }
 
 function clearDisplay() {
