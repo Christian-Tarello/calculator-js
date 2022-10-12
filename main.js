@@ -31,7 +31,9 @@ function operate(operator, a, b) {
 function typeNumber(e) {
     const typedNumber = e.target.value;
 
+    // If the second number is to be inputted
     if (currentOperator) {
+        // If it's the first number typed after the operator
         if (isOperatorRecent){
             lastOperand = display.textContent;
             display.textContent = typedNumber;
@@ -40,6 +42,7 @@ function typeNumber(e) {
             display.textContent += typedNumber;
         }
     } else {
+        // If it's the first number after throwing away an answer
         if (lastOperand) {
             lastOperand = 0;
             display.textContent = typedNumber;
@@ -52,6 +55,7 @@ function typeNumber(e) {
 
 function chooseOperator(e) {
     const eventOperator = e.target.value;
+    // If an operator has been choosen while another's operator calculation is happening
     if (currentOperator) {
         display.textContent = operate(currentOperator, +lastOperand, +display.textContent);
         lastOperand = display.textContent;
