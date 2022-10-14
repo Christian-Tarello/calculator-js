@@ -57,7 +57,7 @@ function chooseOperator(e) {
     const eventOperator = e.target.value;
     // If an operator has been choosen while another's operator calculation is happening
     if (currentOperator) {
-        display.textContent = operate(currentOperator, +lastOperand, +display.textContent);
+        display.textContent = calculateAnswer(currentOperator, +lastOperand, +display.textContent);
         lastOperand = display.textContent;
         currentOperator = eventOperator;
         isOperatorRecent = true;
@@ -70,7 +70,7 @@ function chooseOperator(e) {
 
 function evaluateOperation() {
     if (!currentOperator || !lastOperand) return;
-    display.textContent = operate(currentOperator, +lastOperand, +display.textContent);
+    display.textContent = calculateAnswer(currentOperator, +lastOperand, +display.textContent);
     lastOperand = display.textContent;
     currentOperator = null;
     isOperatorRecent = false;
