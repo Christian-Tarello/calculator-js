@@ -45,6 +45,18 @@ body{
     overflow-x: auto;
 }
 
+.calculator-display::-webkit-scrollbar{
+    height: 8px;
+    background: #00000022;
+    border-radius: 8px;
+}
+
+.calculator-display::-webkit-scrollbar-thumb{
+    background: #0000006c;
+    border-radius: 8px;
+
+}
+
 .calculator-buttons{
     display: flex;
     flex: 1;
