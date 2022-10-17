@@ -72,7 +72,7 @@ function evaluateOperation() {
     if (!currentOperator || !lastOperand) return;
     display.textContent = calculateAnswer(currentOperator, +lastOperand, +display.textContent);
     lastOperand = display.textContent;
-    currentOperator = null;
+    currentOperator = "";
     isOperatorRecent = false;
 }
 
@@ -127,7 +127,7 @@ function handleKeyboardInput(e) {
 
 let currentOperator; //string
 let isOperatorRecent; //boolean
-let lastOperand;
+let lastOperand; //string
 
 const display = document.querySelector(".calculator-display");
 
