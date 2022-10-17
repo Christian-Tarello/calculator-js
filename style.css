@@ -9,9 +9,14 @@ body{
     background-color: #1F2937
 }
 
-.calculator{
-    margin: auto;
+.calculator-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
+.calculator{
     width: 400px;
     height: 500px;
 
