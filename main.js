@@ -119,6 +119,12 @@ function calculateAnswer(operator, firstOperand, secondOperand) {
     return answer;
 }
 
+function handleKeyboardInput(e) {
+    const key = document.querySelector(`button[data-key='${e.keyCode}']`);
+    if (!key) return;
+    key.click();
+}
+
 let currentOperator; //string
 let isOperatorRecent; //boolean
 let lastOperand;
@@ -148,3 +154,5 @@ decimal.addEventListener("click", typeDecimal)
 
 const percent = document.querySelector(".percent");
 percent.addEventListener("click", calculatePercentage);
+
+window.addEventListener("keydown", handleKeyboardInput);
