@@ -86,7 +86,7 @@ function clearDisplay() {
     display.textContent = "";
     currentOperator = "";
     isOperatorRecent = false;
-    lastOperand = ""
+    lastOperand = "";
 }
 
 function toggleSign() {
@@ -129,7 +129,7 @@ let currentOperator; //string
 let isOperatorRecent; //boolean
 let lastOperand;
 
-const display = document.querySelector(".calculator-display")
+const display = document.querySelector(".calculator-display");
 
 const numbers = document.querySelectorAll(".number");
 numbers.forEach((number)=>{number.addEventListener("click",typeNumber)});
@@ -138,7 +138,7 @@ const operators = document.querySelectorAll(".operator");
 operators.forEach((operator)=>{operator.addEventListener("click",chooseOperator)});
 
 const equalSign = document.querySelector('.equal');
-equalSign.addEventListener("click", evaluateOperation)
+equalSign.addEventListener("click", evaluateOperation);
 
 const backspace = document.querySelector('.backspace');
 backspace.addEventListener("click", backspaceDisplay);
@@ -150,7 +150,7 @@ const sign = document.querySelector(".sign");
 sign.addEventListener("click", toggleSign);
 
 const decimal = document.querySelector(".decimal");
-decimal.addEventListener("click", typeDecimal)
+decimal.addEventListener("click", typeDecimal);
 
 const percent = document.querySelector(".percent");
 percent.addEventListener("click", calculatePercentage);
